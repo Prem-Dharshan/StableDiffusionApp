@@ -10,6 +10,10 @@ from torch import autocast
 from diffusers import StableDiffusionPipeline 
 from transformers import CLIPImageProcessor
 
+import torch
+print(torch.cuda.is_available())
+print(torch.version.cuda)
+
 
 # Create the app
 app = tk.Tk()
@@ -60,7 +64,7 @@ def generate():
     lmain.image = img
 
 # trigger = ctk.CTkButton(height=40, width=120, text_font=("Arial", 20), text_color="white", fg_color="blue", command=generate) 
-trigger = ctk.CTkButton(
+trigger = ctk.CTkButton(app,
     height=40, width=120,
     font=("Arial", 20),  # Set the font directly using 'font' argument
     text_color="white", fg_color="blue",
